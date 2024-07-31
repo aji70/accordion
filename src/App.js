@@ -35,15 +35,16 @@ function Accordion({ data }) {
           onOpen={setCurOpen}
           num={index}
           title={item.title}
-          text={item.text}
           key={item.title}
-        />
+        >
+          {item.text}
+        </AccordionItem>
       ))}
     </div>
   );
 }
 
-function AccordionItem({ num, onOpen, curOpen, title, text }) {
+function AccordionItem({ num, onOpen, curOpen, title, children }) {
   const isOpen = num === curOpen;
   function handleToggle() {
     num !== curOpen ? onOpen(num) : onOpen(null);
@@ -54,7 +55,7 @@ function AccordionItem({ num, onOpen, curOpen, title, text }) {
       <p className="title">{title}</p>
       <p className="icon">{isOpen ? "-" : "+"}</p>
 
-      {isOpen && <div className="content-box">{text}</div>}
+      {isOpen && <div className="content-box">{children}</div>}
     </div>
   );
 }
