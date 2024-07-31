@@ -40,6 +40,20 @@ function Accordion({ data }) {
           {item.text}
         </AccordionItem>
       ))}
+      <AccordionItem
+        curOpen={curOpen}
+        onOpen={setCurOpen}
+        num={22}
+        title="Test 1"
+        key="Test 1"
+      >
+        <p>Allow React Developers to :</p>
+        <ul>
+          <li>Break up UI into components</li>
+          <li>Make Components Reusable</li>
+          <li>Place State Efficiently</li>
+        </ul>
+      </AccordionItem>
     </div>
   );
 }
